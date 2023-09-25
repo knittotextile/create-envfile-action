@@ -1,0 +1,42 @@
+{
+  "name": "@knitto/create-envfile-action",
+  "description": "",
+  "version": "0.0.1",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "bundle": "npm run format:write && npm run package",
+    "format:write": "prettier --write **/*.ts",
+    "format:check": "prettier --check **/*.ts",
+    "lint": "eslint --cache --fix",
+    "lint:check": "eslint --cache",
+    "lint-staged": "lint-staged",
+    "package": "ncc build src/index.ts --license licenses.txt",
+    "package:watch": "npm run package -- --watch",
+    "all": "npm run format:write && npm run lint && npm run package",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "@actions/core": "^1.10.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@typescript-eslint/eslint-plugin": "^6.7.2",
+    "@typescript-eslint/parser": "^6.7.2",
+    "@vercel/ncc": "^0.38.0",
+    "eslint": "^8.50.0",
+    "eslint-plugin-github": "^4.10.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2"
+  },
+  "lint-staged": {
+    "**/*.+(js|mjs|cjs|jsx|ts|tsx)": "eslint --cache --fix",
+    "**/*.+(js|mjs|cjs|jsx|ts|tsx|css|scss|json|yml|yaml)": "prettier --write --ignore-path .gitignore --ignore-path .prettierignore"
+  }
+}
