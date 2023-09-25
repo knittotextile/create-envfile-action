@@ -1,6 +1,6 @@
 {
   "name": "@knitto/create-envfile-action",
-  "description": "",
+  "description": "GitHub Action to create .env file",
   "version": "0.0.2",
   "exports": {
     ".": "./dist/index.js"
