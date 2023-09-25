@@ -2784,7 +2784,7 @@ const main = async () => {
         baseDir = !baseDir || baseDir === "None" ? "." : baseDir;
         let directory = "";
         directory = core.getInput("directory") || "";
-        directory = directory = directory.replace(/^\.\//, "");
+        directory = directory.replace(/^\.\//, "");
         if (path.isAbsolute(directory)) {
             throw new Error("Absolute paths are not allowed. Please use a relative path.");
         }
